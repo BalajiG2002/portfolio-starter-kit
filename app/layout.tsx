@@ -11,15 +11,15 @@ import { baseUrl } from './sitemap'
 export const metadata: Metadata = {
   metadataBase: new URL(baseUrl),
   title: {
-    default: 'Next.js Portfolio Starter',
-    template: '%s | Next.js Portfolio Starter',
+    default: 'BALAJI G - Agentic AI Engineer',
+    template: '%s | BALAJI G',
   },
-  description: 'This is my portfolio.',
+  description: 'Agentic AI Engineer & Multi-Agent Systems Specialist. Expert in Microsoft Autogen, AG2, ADK frameworks. Production-grade systems for financial services & enterprise automation.',
   openGraph: {
-    title: 'My Portfolio',
-    description: 'This is my portfolio.',
+    title: 'BALAJI G - Agentic AI Engineer',
+    description: 'Multi-Agent Systems Specialist | Production-Grade Agentic AI',
     url: baseUrl,
-    siteName: 'My Portfolio',
+    siteName: 'BALAJI G Portfolio',
     locale: 'en_US',
     type: 'website',
   },
