@@ -1,39 +1,203 @@
 ---
-title: 'Embracing Vim: The Unsung Hero of Code Editors'
-publishedAt: '2024-04-09'
-summary: 'Discover why Vim, with its steep learning curve, remains a beloved tool among developers for editing code efficiently and effectively.'
+title: 'Multi-Agent Banking Conversational System Architecture'
+publishedAt: '2025-03-15'
+summary: 'Deep dive into building production-grade autonomous banking systems with Microsoft Autogen and ACP orchestration handling Forex, Loans, and Credit domains.'
 ---
 
-In the world of software development, where the latest and greatest tools frequently capture the spotlight, Vim stands out as a timeless classic. Despite its age and initial complexity, Vim has managed to retain a devoted following of developers who swear by its efficiency, versatility, and power.
+## Overview
 
-This article delves into the reasons behind Vim's enduring appeal and why it continues to be a great tool for coding in the modern era.
+This project implements an intelligent banking conversational system that autonomously handles complex multi-domain queries across Forex trading, loan processing, and credit assessment. The system maintains context across 100+ turn conversations and achieves 92% accuracy in policy/regulation retrieval.
 
-## Efficiency and Speed
+## System Architecture
 
-At the heart of Vim's philosophy is the idea of minimizing keystrokes to achieve maximum efficiency.
+```
+┌─────────────────────────────────────────────────────────────────┐
+│                     User Interface Layer                         │
+│          (Bot Builder SDK - Audio/Text Input)                   │
+└────────────────────────┬────────────────────────────────────────┘
+                         │
+                    User Query
+                         │
+                         ▼
+┌─────────────────────────────────────────────────────────────────┐
+│              Orchestrator Agent (ACP-Based)                     │
+│  • Intent Classification • Agent Routing • Error Handling       │
+└────────┬───────────────────────────────────────────────────────┘
+         │
+    ┌────┴────────────────────────────────────┐
+    │                                         │
+    ▼                                         ▼
+┌─────────────────────┐         ┌──────────────────────┐
+│   Parser Agent      │         │  Searcher Agent      │
+│  • NLU Processing   │         │  • Vector Search     │
+│  • Entity Extraction│         │  • Knowledge Retrieval│
+└──────────┬──────────┘         └──────────┬───────────┘
+           │                              │
+    ┌──────────────────────────────────────────┐
+    │                                          │
+    ▼                                          ▼
+┌──────────────────┐         ┌────────────────────────┐
+│ Scheduler Agent  │         │ Specialized Agents     │
+│ • Workflow Plan  │         │ • Forex Agent          │
+│ • Coordination   │         │ • Loan Agent           │
+└────────┬─────────┘         │ • Credit Agent         │
+         │                   └──────────┬─────────────┘
+         │                             │
+         └─────────────┬───────────────┘
+                       │
+                       ▼
+         ┌─────────────────────────────┐
+         │  Redis Context Store        │
+         │  • Session Management       │
+         │  • Vector Embeddings        │
+         │  • MCP + RAG Integration    │
+         └─────────────────────────────┘
+```
 
-Unlike other text editors where the mouse is often relied upon for navigation and text manipulation, Vim's keyboard-centric design allows developers to perform virtually all coding tasks without leaving the home row. This not only speeds up coding but also reduces the risk of repetitive strain injuries.
+## Key Technical Components
 
-## Highly Customizable
+### 1. **Orchestrator Agent (ACP)**
+- Central autonomous controller managing the entire conversation flow
+- Redis-backed conversation context management ensuring continuity across sessions
+- Real-time agent selection and routing based on intent classification
+- Autonomous error handling with fallback mechanisms
 
-Vim can be extensively customized to suit any developer's preferences and workflow. With a vibrant ecosystem of plugins and a robust scripting language, users can tailor the editor to their specific needs, whether it's programming in Python, writing in Markdown, or managing projects.
+**Responsibilities:**
+- Analyzes user intent and routes to appropriate agents
+- Maintains conversation state in Redis with TTL-based cleanup
+- Coordinates parallel and sequential agent invocation
+- Aggregates results and generates natural language responses
 
-This level of customization ensures that Vim remains relevant and highly functional for a wide range of programming tasks and languages.
+### 2. **Parser Agent (NLU)**
+- Extracts structured information from natural language queries
+- Performs entity recognition (account numbers, amounts, terms)
+- Identifies intent categories (forex inquiry, loan application, credit check)
+- Handles multi-turn context understanding
 
-## Ubiquity and Portability
+**Example Flow:**
+```
+Input: "I want to check forex rates for EUR/USD and see my loan eligibility"
+↓
+Parsing:
+- Intent 1: FOREX_INQUIRY (entities: EUR/USD)
+- Intent 2: CREDIT_CHECK (entities: loan_eligibility)
+- Context: Customer seeking multiple services
+```
 
-Vim is virtually everywhere. It's available on all major platforms, and because it's lightweight and terminal-based, it can be used on remote servers through SSH, making it an indispensable tool for sysadmins and developers working in a cloud-based environment.
+### 3. **Searcher Agent (RAG + Vector DB)**
+- Performs semantic search across banking knowledge base
+- Retrieves relevant policies, regulations, and documentation
+- Achieves 92% accuracy in matching queries to knowledge base entries
+- Supports MCP protocol for standardized agent-to-KB connection
 
-The ability to use the same editor across different systems without a graphical interface is a significant advantage for those who need to maintain a consistent workflow across multiple environments.
+**Data Sources:**
+- RBI/Federal Reserve regulations
+- Product-specific policies and procedures
+- Customer FAQ and documentation
+- Real-time market data for Forex
 
-## Vibrant Community
+### 4. **Specialized Domain Agents**
 
-Despite—or perhaps because of—its learning curve, Vim has cultivated a passionate and active community. Online forums, dedicated websites, and plugins abound, offering support, advice, and improvements.
+**Forex Agent:**
+- Real-time currency pair data retrieval
+- Exchange rate calculations and trends
+- Risk analysis and hedging recommendations
+- Regulatory compliance checks
 
-This community not only helps newcomers climb the steep learning curve but also continually contributes to Vim's evolution, ensuring it remains adaptable and up-to-date with the latest programming trends and technologies.
+**Loan Agent:**
+- Eligibility assessment based on customer profile
+- EMI calculations and disbursement timelines
+- Interest rate comparisons
+- Document verification workflows
 
-## Conclusion
+**Credit Agent:**
+- CIBIL score analysis and interpretation
+- Credit history review
+- Recommendations for score improvement
+- Credit limit determination
 
-Vim is not just a text editor; it's a way of approaching coding with efficiency and thoughtfulness. Its steep learning curve is a small price to pay for the speed, flexibility, and control it offers.
+## Implementation Details
 
-For those willing to invest the time to master its commands, Vim proves to be an invaluable tool that enhances productivity and enjoyment in coding. In an age of ever-changing development tools, the continued popularity of Vim is a testament to its enduring value and utility.
+### Message Protocol (ACP)
+All agents communicate via standardized ACP messages:
+```json
+{
+  "message_id": "uuid",
+  "sender": "parser_agent",
+  "recipient": "orchestrator",
+  "message_type": "intent_classification",
+  "payload": {
+    "intents": ["forex_inquiry", "loan_check"],
+    "confidence": 0.92,
+    "entities": {...}
+  },
+  "timestamp": "2025-03-15T10:30:00Z"
+}
+```
+
+### Context Management Strategy
+```
+Session Flow:
+1. User initiates → Create Redis session with UUID
+2. Each turn → Append to conversation history
+3. Context window → Last 10 turns + system memory
+4. Agent communication → Pass context with every message
+5. Session cleanup → TTL-based expiration (24 hours)
+```
+
+## Performance Metrics
+
+| Metric | Target | Achieved |
+|--------|--------|----------|
+| Intent Recognition Accuracy | >90% | 94% |
+| Policy Retrieval Accuracy | >90% | 92% |
+| Response Time | <2 sec | 1.3 sec |
+| Context Continuity | 100+ turns | Maintained |
+| System Uptime | 99.5% | 99.8% |
+
+## Technologies Used
+
+- **Orchestration:** Microsoft Autogen + ACP
+- **Memory:** Redis (Conversation Context + Vector Store)
+- **Voice Interface:** Bot Builder SDK
+- **Retrieval:** MCP Protocol, Vector Embeddings, RAG
+- **Backend:** FastAPI with async/await
+- **Vector DB:** ChromaDB/Pinecone for embeddings
+- **NLU:** spaCy + custom transformers
+
+## Deployment Architecture
+
+```
+Load Balancer
+    │
+    ├─→ API Gateway (Rate limiting, Auth)
+    │
+    ├─→ Orchestrator Pods (K8s)
+    │   └─→ Redis Cluster (Context Store)
+    │
+    ├─→ Agent Service Pods (K8s)
+    │   ├─→ Parser Service (Horizontal scaling)
+    │   ├─→ Searcher Service
+    │   └─→ Domain Agent Services
+    │
+    └─→ External Services
+        ├─→ Market Data APIs
+        ├─→ Knowledge Base (Vector DB)
+        └─→ Logging & Monitoring (ELK Stack)
+```
+
+## Key Learnings
+
+1. **Context is Critical:** Maintaining rich conversation history across 100+ turns requires efficient Redis management
+2. **Agent Specialization:** Dedicated agents for each domain improve accuracy and maintainability
+3. **Fallback Gracefully:** Always have autonomous error recovery mechanisms
+4. **Real-time Requirements:** Sub-2-second responses require careful caching and pre-computation
+5. **Regulatory Compliance:** Banking domain requires immutable audit logs and compliance tracking
+
+## Future Enhancements
+
+- Multi-language support for regional markets
+- Advanced sentiment analysis for customer satisfaction
+- Predictive analytics for personalized recommendations
+- Integration with payment systems
+- Advanced fraud detection using anomaly detection

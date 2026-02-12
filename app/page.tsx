@@ -87,7 +87,7 @@ export default function Page() {
             <span className="mr-2">📱</span> +91 6380842335
           </a>
           <a
-            href="https://linkedin.com/in/balaji-g"
+            href="https://www.linkedin.com/in/balaji-g-5b387a237"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center px-4 py-2 rounded-lg bg-neutral-200 dark:bg-neutral-800 hover:bg-neutral-300 dark:hover:bg-neutral-700 transition-all duration-200"
@@ -239,7 +239,7 @@ export default function Page() {
             Get in Touch
           </a>
           <a
-            href="https://linkedin.com/in/balaji-g"
+            href="https://www.linkedin.com/in/balaji-g-5b387a237"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center px-6 py-3 rounded-lg border-2 border-white text-white hover:bg-white hover:text-blue-600 transition-all duration-200 font-semibold"

@@ -7,7 +7,7 @@ const navItems = {
   '/blog': {
     name: 'blog',
   },
-  'https://linkedin.com/in/balaji-g': {
+  'https://www.linkedin.com/in/balaji-g-5b387a237': {
     name: 'linkedin',
   },
   'https://github.com': {
