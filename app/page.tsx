@@ -1,6 +1,3 @@
-'use client'
-
-import { useState } from 'react'
 import { BlogPosts } from 'app/components/posts'
 
 interface Project {
@@ -56,14 +53,12 @@ const projects: Project[] = [
 
 const expertise = {
   'Agentic AI Frameworks': ['Microsoft Autogen + ACP', 'AG2 + A2A', 'ADK + A2A'],
-  'Multi-Agent Architecture': ['Hub-and-spoke orchestration', 'Sequential agent invocation', 'Parallel execution', 'Error recovery'],
+  'Multi-Agent Architecture': ['Hub-and-spoke orchestration', 'Sequential agent invocation', 'Parallel execution', 'Autonomous error recovery'],
   'Memory & Retrieval': ['Redis context management', 'Vector embeddings', 'RAG systems', 'MCP protocol'],
   'Integration & Voice': ['Microsoft Teams SDK', 'Bot Builder SDK', 'Azure Speech Services', 'Microsoft Graph API']
 }
 
 export default function Page() {
-  const [expandedProject, setExpandedProject] = useState<string | null>(null)
-
   return (
     <section>
       {/* Hero */}
@@ -113,8 +108,7 @@ export default function Page() {
           {projects.map((project, idx) => (
             <div
               key={idx}
-              className="group cursor-pointer rounded-xl border border-neutral-200 dark:border-neutral-800 p-6 hover:border-blue-400 dark:hover:border-blue-500 hover:bg-neutral-50 dark:hover:bg-neutral-900 hover:shadow-lg transition-all duration-300"
-              onClick={() => setExpandedProject(expandedProject === project.title ? null : project.title)}
+              className="group rounded-xl border border-neutral-200 dark:border-neutral-800 p-6 hover:border-blue-400 dark:hover:border-blue-500 hover:bg-neutral-50 dark:hover:bg-neutral-900 hover:shadow-lg transition-all duration-300"
             >
               <div className="flex items-start justify-between">
                 <div className="flex-1">
@@ -130,47 +124,42 @@ export default function Page() {
                     </span>
                   </div>
                 </div>
-                <span className="text-2xl ml-4 transition-transform duration-300 group-hover:translate-x-1">
-                  {expandedProject === project.title ? '▼' : '▶'}
-                </span>
               </div>
 
               <p className="text-neutral-700 dark:text-neutral-300 mb-4">
                 {project.description}
               </p>
 
-              {expandedProject === project.title && (
-                <div className="mt-6 pt-6 border-t border-neutral-200 dark:border-neutral-800 animate-in fade-in duration-300">
-                  <div className="mb-6">
-                    <h4 className="font-semibold text-neutral-900 dark:text-white mb-3 flex items-center">
-                      <span className="mr-2">📊</span> Key Impact
-                    </h4>
-                    <ul className="grid grid-cols-1 md:grid-cols-2 gap-3">
-                      {project.impact.map((item, i) => (
-                        <li key={i} className="flex items-start text-sm text-neutral-700 dark:text-neutral-300">
-                          <span className="mr-2 text-blue-500 font-bold">✓</span>
-                          <span>{item}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-neutral-900 dark:text-white mb-3 flex items-center">
-                      <span className="mr-2">🛠️</span> Tech Stack
-                    </h4>
-                    <div className="flex flex-wrap gap-2">
-                      {project.tech.map((t, i) => (
-                        <span
-                          key={i}
-                          className="inline-block px-3 py-1 text-xs font-medium bg-neutral-100 dark:bg-neutral-800 text-neutral-800 dark:text-neutral-200 rounded-lg hover:bg-blue-100 dark:hover:bg-blue-900 transition-colors"
-                        >
-                          {t}
-                        </span>
-                      ))}
-                    </div>
+              <div className="mt-6 pt-6 border-t border-neutral-200 dark:border-neutral-800">
+                <div className="mb-6">
+                  <h4 className="font-semibold text-neutral-900 dark:text-white mb-3 flex items-center">
+                    <span className="mr-2">📊</span> Key Impact
+                  </h4>
+                  <ul className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                    {project.impact.map((item, i) => (
+                      <li key={i} className="flex items-start text-sm text-neutral-700 dark:text-neutral-300">
+                        <span className="mr-2 text-blue-500 font-bold">✓</span>
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+                <div>
+                  <h4 className="font-semibold text-neutral-900 dark:text-white mb-3 flex items-center">
+                    <span className="mr-2">🛠️</span> Tech Stack
+                  </h4>
+                  <div className="flex flex-wrap gap-2">
+                    {project.tech.map((t, i) => (
+                      <span
+                        key={i}
+                        className="inline-block px-3 py-1 text-xs font-medium bg-neutral-100 dark:bg-neutral-800 text-neutral-800 dark:text-neutral-200 rounded-lg hover:bg-blue-100 dark:hover:bg-blue-900 transition-colors"
+                      >
+                        {t}
+                      </span>
+                    ))}
                   </div>
                 </div>
-              )}
+              </div>
             </div>
           ))}
         </div>
