@@ -116,75 +116,100 @@ export default function Page() {
   return (
     <section>
       {/* HERO */}
-      <div className="portfolio-hero">
-        <div className="hero-tag">
-          <span className="tag-line"></span>
+      <div className="py-16 border-b border-neutral-200 dark:border-neutral-800">
+        <div className="font-mono text-xs text-blue-600 tracking-widest uppercase mb-5 flex items-center gap-2">
+          <span className="inline-block w-5 h-px bg-blue-600"></span>
           Agentic AI Engineer
         </div>
-        <h1 className="hero-title">Balaji G</h1>
-        <p className="hero-sub">
+        <h1 className="text-5xl sm:text-6xl md:text-7xl font-extrabold leading-none tracking-tighter mb-6">
+          Balaji G
+        </h1>
+        <p className="font-mono text-sm text-neutral-600 dark:text-neutral-400 max-w-xl leading-relaxed mb-8">
           I build AI agents that talk to people and get things done — no human in the loop. 
           From conversational banking systems to 8-agent code generation pipelines.
         </p>
-        <div className="hero-badges">
-          <span className="badge win">🏆 GDG Chennai First Prize</span>
-          <span className="badge">Multi-Agent Systems</span>
-          <span className="badge">Voice AI</span>
-          <span className="badge">RAG Pipelines</span>
-          <span className="badge">GitHub Copilot Cloud</span>
+        <div className="flex flex-wrap gap-2 mb-10">
+          <span className="font-mono text-xs px-3 py-1.5 rounded border font-medium bg-green-50 dark:bg-green-950 text-green-700 dark:text-green-400 border-green-200 dark:border-green-800">
+            🏆 GDG Chennai First Prize
+          </span>
+          <span className="font-mono text-xs px-3 py-1.5 rounded border border-neutral-300 dark:border-neutral-700 text-neutral-600 dark:text-neutral-400 bg-neutral-100 dark:bg-neutral-800">
+            Multi-Agent Systems
+          </span>
+          <span className="font-mono text-xs px-3 py-1.5 rounded border border-neutral-300 dark:border-neutral-700 text-neutral-600 dark:text-neutral-400 bg-neutral-100 dark:bg-neutral-800">
+            Voice AI
+          </span>
+          <span className="font-mono text-xs px-3 py-1.5 rounded border border-neutral-300 dark:border-neutral-700 text-neutral-600 dark:text-neutral-400 bg-neutral-100 dark:bg-neutral-800">
+            RAG Pipelines
+          </span>
+          <span className="font-mono text-xs px-3 py-1.5 rounded border border-neutral-300 dark:border-neutral-700 text-neutral-600 dark:text-neutral-400 bg-neutral-100 dark:bg-neutral-800">
+            GitHub Copilot Cloud
+          </span>
         </div>
-        <div className="contact-row">
-          <a className="contact-link" href="mailto:adithya8112002@gmail.com">adithya8112002@gmail.com</a>
-          <a className="contact-link" href="tel:+916380842335">+91 6380842335</a>
-          <a className="contact-link" href="https://www.linkedin.com/in/balaji-g-5b387a237" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
+        <div className="flex flex-wrap gap-2.5">
+          <a className="font-mono text-xs text-blue-600 dark:text-blue-400 px-4 py-2 border border-neutral-300 dark:border-neutral-700 rounded-lg bg-neutral-100 dark:bg-neutral-800 transition-colors hover:bg-blue-50 dark:hover:bg-blue-950" 
+             href="mailto:adithya8112002@gmail.com">
+            adithya8112002@gmail.com
+          </a>
+          <a className="font-mono text-xs text-blue-600 dark:text-blue-400 px-4 py-2 border border-neutral-300 dark:border-neutral-700 rounded-lg bg-neutral-100 dark:bg-neutral-800 transition-colors hover:bg-blue-50 dark:hover:bg-blue-950" 
+             href="tel:+916380842335">
+            +91 6380842335
+          </a>
+          <a className="font-mono text-xs text-blue-600 dark:text-blue-400 px-4 py-2 border border-neutral-300 dark:border-neutral-700 rounded-lg bg-neutral-100 dark:bg-neutral-800 transition-colors hover:bg-blue-50 dark:hover:bg-blue-950" 
+             href="https://www.linkedin.com/in/balaji-g-5b387a237" 
+             target="_blank" 
+             rel="noopener noreferrer">
+            LinkedIn ↗
+          </a>
         </div>
       </div>
 
       {/* STATS */}
-      <div className="stats-grid">
-        <div className="stat-card">
-          <div className="stat-num">8</div>
-          <div className="stat-label">Agents built</div>
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-3 py-10 border-b border-neutral-200 dark:border-neutral-800">
+        <div className="bg-neutral-100 dark:bg-neutral-800 rounded-lg p-5">
+          <div className="text-4xl font-extrabold text-neutral-900 dark:text-white leading-none tracking-tight">8</div>
+          <div className="font-mono text-xs text-neutral-600 dark:text-neutral-400 mt-1.5">Agents built</div>
         </div>
-        <div className="stat-card">
-          <div className="stat-num">34</div>
-          <div className="stat-label">Skills designed</div>
+        <div className="bg-neutral-100 dark:bg-neutral-800 rounded-lg p-5">
+          <div className="text-4xl font-extrabold text-neutral-900 dark:text-white leading-none tracking-tight">34</div>
+          <div className="font-mono text-xs text-neutral-600 dark:text-neutral-400 mt-1.5">Skills designed</div>
         </div>
-        <div className="stat-card">
-          <div className="stat-num">92%</div>
-          <div className="stat-label">RAG accuracy</div>
+        <div className="bg-neutral-100 dark:bg-neutral-800 rounded-lg p-5">
+          <div className="text-4xl font-extrabold text-neutral-900 dark:text-white leading-none tracking-tight">92%</div>
+          <div className="font-mono text-xs text-neutral-600 dark:text-neutral-400 mt-1.5">RAG accuracy</div>
         </div>
-        <div className="stat-card">
-          <div className="stat-num">1st</div>
-          <div className="stat-label">GDG Chennai</div>
+        <div className="bg-neutral-100 dark:bg-neutral-800 rounded-lg p-5">
+          <div className="text-4xl font-extrabold text-neutral-900 dark:text-white leading-none tracking-tight">1st</div>
+          <div className="font-mono text-xs text-neutral-600 dark:text-neutral-400 mt-1.5">GDG Chennai</div>
         </div>
       </div>
 
       {/* PROJECTS */}
-      <div className="portfolio-section" id="projects">
-        <div className="section-label">Projects</div>
-        <div className="projects-list">
+      <div className="py-12 border-b border-neutral-200 dark:border-neutral-800" id="projects">
+        <div className="font-mono text-xs text-neutral-500 tracking-widest uppercase mb-8">Projects</div>
+        <div className="flex flex-col gap-px bg-neutral-200 dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-800 rounded-xl overflow-hidden">
           {projects.map((proj) => (
-            <div key={proj.id} className={`proj-card ${proj.featured ? 'featured' : ''}`}>
-              <div className="proj-top">
-                <div className="proj-left">
-                  <div className="proj-num">{proj.id} — {proj.status}</div>
-                  <div className="proj-name">{proj.title}</div>
-                  <div className="proj-desc">{proj.description}</div>
+            <div key={proj.id} className={`bg-white dark:bg-neutral-900 p-7 transition-colors hover:bg-neutral-50 dark:hover:bg-neutral-800 ${proj.featured ? 'border-l-[3px] border-l-green-700 dark:border-l-green-600' : ''}`}>
+              <div className="flex flex-col md:flex-row items-start justify-between gap-6">
+                <div className="flex-1 min-w-0">
+                  <div className="font-mono text-xs text-neutral-500 mb-2">{proj.id} — {proj.status}</div>
+                  <div className="text-lg font-bold text-neutral-900 dark:text-white mb-3 leading-snug">{proj.title}</div>
+                  <div className="font-mono text-xs text-neutral-600 dark:text-neutral-400 leading-relaxed">{proj.description}</div>
                 </div>
-                <div className="proj-right">
-                  <div className="proj-date">{proj.date}</div>
-                  <div className="proj-tags">
+                <div className="flex-shrink-0 flex flex-col items-start md:items-end gap-2">
+                  <div className="font-mono text-xs text-neutral-500">{proj.date}</div>
+                  <div className="flex flex-wrap gap-1.5 justify-start md:justify-end max-w-full md:max-w-xs">
                     {proj.tags.map((tag, i) => (
-                      <span key={i} className="tag">{tag}</span>
+                      <span key={i} className="font-mono text-[10px] px-2 py-1 rounded bg-neutral-100 dark:bg-neutral-800 text-neutral-600 dark:text-neutral-400 border border-neutral-300 dark:border-neutral-700">
+                        {tag}
+                      </span>
                     ))}
                   </div>
                 </div>
               </div>
-              <div className="proj-metrics">
+              <div className="flex flex-wrap gap-4 mt-6 pt-6 border-t border-neutral-200 dark:border-neutral-800">
                 {proj.metrics.map((metric, i) => (
-                  <div key={i} className="metric">
-                    <strong>{metric.label}</strong> — {metric.value}
+                  <div key={i} className="font-mono text-xs text-neutral-600 dark:text-neutral-400">
+                    <strong className="text-blue-600 dark:text-blue-400 font-medium">{metric.label}</strong> — {metric.value}
                   </div>
                 ))}
               </div>
@@ -194,18 +219,19 @@ export default function Page() {
       </div>
 
       {/* EXPERIENCE */}
-      <div className="portfolio-section" id="experience">
-        <div className="section-label">Experience</div>
-        <div className="exp-list">
+      <div className="py-12 border-b border-neutral-200 dark:border-neutral-800" id="experience">
+        <div className="font-mono text-xs text-neutral-500 tracking-widest uppercase mb-8">Experience</div>
+        <div className="flex flex-col gap-0">
           {experience.map((exp, idx) => (
-            <div key={idx} className="exp-item">
-              <div className="exp-date">{exp.period.replace(' – ', ' –\n')}</div>
+            <div key={idx} className="grid grid-cols-1 md:grid-cols-[140px_1fr] gap-8 py-6 border-b border-neutral-200 dark:border-neutral-800 last:border-b-0">
+              <div className="font-mono text-xs text-neutral-500 pt-1 leading-relaxed whitespace-pre-line">{exp.period.replace(' – ', ' –\n')}</div>
               <div>
-                <div className="exp-company">{exp.company}</div>
-                <div className="exp-role">{exp.role}</div>
-                <ul className="exp-bullets">
+                <div className="text-base font-bold text-neutral-900 dark:text-white mb-1">{exp.company}</div>
+                <div className="font-mono text-xs text-neutral-600 dark:text-neutral-400 mb-4">{exp.role}</div>
+                <ul className="list-none flex flex-col gap-2">
                   {exp.bullets.map((bullet, i) => (
-                    <li key={i} dangerouslySetInnerHTML={{ __html: bullet.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>') }} />
+                    <li key={i} className="font-mono text-xs text-neutral-600 dark:text-neutral-400 leading-relaxed pl-4 relative before:content-['—'] before:absolute before:left-0 before:text-neutral-500" 
+                        dangerouslySetInnerHTML={{ __html: bullet.replace(/\*\*(.*?)\*\*/g, '<strong class="text-neutral-900 dark:text-white font-medium">$1</strong>') }} />
                   ))}
                 </ul>
               </div>
@@ -215,15 +241,17 @@ export default function Page() {
       </div>
 
       {/* SKILLS */}
-      <div className="portfolio-section" id="skills">
-        <div className="section-label">Technical Skills</div>
-        <div className="skills-grid">
+      <div className="py-12 border-b border-neutral-200 dark:border-neutral-800" id="skills">
+        <div className="font-mono text-xs text-neutral-500 tracking-widest uppercase mb-8">Technical Skills</div>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
           {Object.entries(skills).map(([category, items]) => (
-            <div key={category} className="skill-card">
-              <div className="skill-cat">{category}</div>
-              <div className="skill-items">
+            <div key={category} className="bg-neutral-100 dark:bg-neutral-800 rounded-lg p-5 border border-neutral-200 dark:border-neutral-700">
+              <div className="font-mono text-xs text-blue-600 dark:text-blue-400 mb-4 font-medium uppercase tracking-wider">{category}</div>
+              <div className="flex flex-wrap gap-1.5">
                 {items.map((item, i) => (
-                  <span key={i} className="skill-pill">{item}</span>
+                  <span key={i} className="font-mono text-xs text-neutral-600 dark:text-neutral-400 bg-white dark:bg-neutral-900 border border-neutral-300 dark:border-neutral-700 px-2.5 py-1 rounded">
+                    {item}
+                  </span>
                 ))}
               </div>
             </div>
@@ -232,35 +260,44 @@ export default function Page() {
       </div>
 
       {/* EDUCATION & CERTS */}
-      <div className="portfolio-section">
-        <div className="section-label">Education & Certifications</div>
-        <div className="exp-item" style={{ borderBottom: '0.5px solid var(--border)', paddingBottom: '1.4rem', marginBottom: '1.2rem' }}>
-          <div className="exp-date">2020 – 2025</div>
+      <div className="py-12 border-b border-neutral-200 dark:border-neutral-800">
+        <div className="font-mono text-xs text-neutral-500 tracking-widest uppercase mb-8">Education & Certifications</div>
+        <div className="grid grid-cols-1 md:grid-cols-[140px_1fr] gap-8 py-6 border-b border-neutral-200 dark:border-neutral-800 pb-6 mb-6">
+          <div className="font-mono text-xs text-neutral-500 pt-1 leading-relaxed">2020 – 2025</div>
           <div>
-            <div className="exp-company">Vellore Institute of Technology</div>
-            <div className="exp-role">M.Tech Computer Science Engineering — GPA 8.11/10</div>
+            <div className="text-base font-bold text-neutral-900 dark:text-white mb-1">Vellore Institute of Technology</div>
+            <div className="font-mono text-xs text-neutral-600 dark:text-neutral-400">M.Tech Computer Science Engineering — GPA 8.11/10</div>
           </div>
         </div>
-        <div className="certs-list">
+        <div className="flex flex-col gap-2">
           {certifications.map((cert, i) => (
-            <div key={i} className="cert" dangerouslySetInnerHTML={{ __html: cert.replace(/—/g, '—<br/>').replace(/^([^—]+)/, '<strong>$1</strong>') }} />
+            <div key={i} className="font-mono text-xs text-neutral-600 dark:text-neutral-400 p-4 bg-neutral-100 dark:bg-neutral-800 rounded-lg border border-neutral-200 dark:border-neutral-700" 
+                 dangerouslySetInnerHTML={{ __html: cert.replace(/—/g, '—<br/>').replace(/^([^—]+)/, '<strong class="text-neutral-900 dark:text-white">$1</strong>') }} />
           ))}
         </div>
       </div>
 
       {/* CTA */}
-      <div className="portfolio-cta">
-        <div className="cta-title">Let's build something.</div>
-        <p className="cta-sub">Open to roles in agentic AI, conversational systems, and voice AI — especially fintech.</p>
-        <div className="cta-btns">
-          <a className="btn-primary" href="mailto:adithya8112002@gmail.com">Get in touch</a>
-          <a className="btn-secondary" href="https://www.linkedin.com/in/balaji-g-5b387a237" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
+      <div className="py-14 text-center">
+        <div className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight mb-2.5">Let's build something.</div>
+        <p className="font-mono text-xs text-neutral-600 dark:text-neutral-400 mb-8">Open to roles in agentic AI, conversational systems, and voice AI — especially fintech.</p>
+        <div className="flex gap-2.5 justify-center flex-wrap">
+          <a className="font-mono text-xs px-6 py-3 bg-neutral-900 dark:bg-white text-white dark:text-neutral-900 rounded-lg font-medium transition-opacity hover:opacity-80" 
+             href="mailto:adithya8112002@gmail.com">
+            Get in touch
+          </a>
+          <a className="font-mono text-xs px-6 py-3 border border-neutral-300 dark:border-neutral-700 rounded-lg text-neutral-900 dark:text-white bg-neutral-100 dark:bg-neutral-800 transition-colors hover:bg-neutral-200 dark:hover:bg-neutral-700" 
+             href="https://www.linkedin.com/in/balaji-g-5b387a237" 
+             target="_blank" 
+             rel="noopener noreferrer">
+            LinkedIn ↗
+          </a>
         </div>
       </div>
 
       {/* Blog Section */}
-      <div className="blog-section">
-        <h2 className="section-label">Latest Articles</h2>
+      <div className="mb-8">
+        <h2 className="font-mono text-xs text-neutral-500 tracking-widest uppercase mb-8">Latest Articles</h2>
         <BlogPosts />
       </div>
     </section>
