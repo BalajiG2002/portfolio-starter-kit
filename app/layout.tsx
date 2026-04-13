@@ -11,15 +11,15 @@ import { baseUrl } from './sitemap'
 export const metadata: Metadata = {
   metadataBase: new URL(baseUrl),
   title: {
-    default: 'BALAJI G - Agentic AI Engineer',
-    template: '%s | BALAJI G',
+    default: 'Balaji G — Agentic AI Engineer',
+    template: '%s | Balaji G',
   },
-  description: 'Agentic AI Engineer & Multi-Agent Systems Specialist. Expert in Microsoft Autogen, AG2, ADK frameworks. Production-grade systems for financial services & enterprise automation.',
+  description: 'I build AI agents that talk to people and get things done. From conversational banking systems to 8-agent code generation pipelines. Specializing in multi-agent systems, voice AI, and RAG pipelines.',
   openGraph: {
-    title: 'BALAJI G - Agentic AI Engineer',
-    description: 'Multi-Agent Systems Specialist | Production-Grade Agentic AI',
+    title: 'Balaji G — Agentic AI Engineer',
+    description: 'Multi-Agent Systems Specialist | Production-Grade Agentic AI | GDG Chennai First Prize Winner',
     url: baseUrl,
-    siteName: 'BALAJI G Portfolio',
+    siteName: 'Balaji G Portfolio',
     locale: 'en_US',
     type: 'website',
   },
@@ -52,7 +52,12 @@ export default function RootLayout({
         GeistMono.variable
       )}
     >
-      <body className="antialiased max-w-xl mx-4 mt-8 lg:mx-auto">
+      <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;700;800&family=DM+Mono:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet" />
+      </head>
+      <body className="antialiased max-w-5xl mx-4 mt-8 lg:mx-auto">
         <main className="flex-auto min-w-0 mt-6 flex flex-col px-2 md:px-0">
           <Navbar />
           {children}
